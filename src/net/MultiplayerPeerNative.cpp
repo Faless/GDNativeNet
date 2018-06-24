@@ -7,13 +7,11 @@ void MultiplayerPeerNative::_register_methods() { }
 
 void MultiplayerPeerNative::_init()
 {
-	printf("Binding MultiplayerPeer interface");
 	godot_net_bind_multiplayer_peer(_owner, &interface);
 }
 
 MultiplayerPeerNative::~MultiplayerPeerNative() {
 	if (_owner) {
-		printf("UnBinding MultiplayerPeer interface");
 		godot_net_bind_multiplayer_peer(_owner, NULL);
 	}
 }

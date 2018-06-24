@@ -3,13 +3,11 @@
 void PacketPeerNative::_register_methods() { }
 
 void PacketPeerNative::_init() {
-	printf("Binding PacketPeer interface");
 	godot_net_bind_packet_peer(_owner, &interface);
 }
 
 PacketPeerNative::~PacketPeerNative() {
 	if (_owner) {
-		printf("Unbinding PacketPeer interface");
 		godot_net_bind_packet_peer(_owner, NULL);
 	}
 }
