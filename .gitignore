@@ -4,3 +4,7 @@
 *.la
 *.lib
 *.swp
+
+# Godot project
+*.import
+demo/.import/*
