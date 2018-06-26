@@ -1,5 +1,6 @@
 #include "MyMultiplayerPeer.hpp"
 #include "MyPacketPeer.hpp"
+#include "MyStreamPeer.hpp"
 
 /* Godot export stuff */
 extern "C" void GDN_EXPORT godot_gdnative_init(godot_gdnative_init_options *o) {
@@ -15,4 +16,5 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void *handle) {
 
 	godot::register_class<MyMultiplayerPeer>();
 	godot::register_class<MyPacketPeer>();
+	godot::register_class<MyStreamPeer>();
 }
