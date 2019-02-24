@@ -1,13 +1,18 @@
 #include "MyPacketPeer.hpp"
 
+uint8_t static_buf[1] = { 255 };
+
 godot_error MyPacketPeer::get_packet(const uint8_t **r_buffer, int *r_len) {
 	printf("Get packet");
-	*r_len = 0;
+	*r_len = 1;
+	*r_buffer = static_buf;
 	return GODOT_OK;
 }
 
 godot_error MyPacketPeer::put_packet(const uint8_t *p_buffer, int p_len) {
 	printf("Put packet");
+	if (p_len > 0)
+		static_buf[0] = p_buffer[0];
 	return GODOT_OK;
 }
 

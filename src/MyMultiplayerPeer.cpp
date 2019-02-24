@@ -1,5 +1,7 @@
 #include "MyMultiplayerPeer.hpp"
 
+static uint8_t static_buf[1] = { 255 };
+
 void MyMultiplayerPeer::_register_methods() { }
 
 void MyMultiplayerPeer::_init()
@@ -9,12 +11,15 @@ void MyMultiplayerPeer::_init()
 
 /* PacketPeer */
 godot_error MyMultiplayerPeer::get_packet(const uint8_t **r_buffer, int *r_len) {
-	*r_len = 0;
-	return GODOT_FAILED;
+	*r_len = 1;
+	*r_buffer = static_buf;
+	return GODOT_OK;
 }
 
 godot_error MyMultiplayerPeer::put_packet(const uint8_t *p_buffer, int p_len) {
-	return GODOT_FAILED;
+	if (p_len > 0)
+		static_buf[0] = p_buffer[0];
+	return GODOT_OK;
 }
 
 godot_int MyMultiplayerPeer::get_available_packet_count() const {
