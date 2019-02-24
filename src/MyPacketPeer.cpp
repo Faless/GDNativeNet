@@ -1,8 +1,8 @@
 #include "MyPacketPeer.hpp"
 
-godot_error MyPacketPeer::get_packet(const uint8_t **r_buffer, int &r_len) {
+godot_error MyPacketPeer::get_packet(const uint8_t **r_buffer, int *r_len) {
 	printf("Get packet");
-	r_len = 0;
+	*r_len = 0;
 	return GODOT_OK;
 }
 

@@ -9,9 +9,9 @@
 
 /* Forward declare interface functions */
 godot_error get_data_bind_sp(void *, uint8_t *, int);
-godot_error get_partial_data_bind_sp(void *, uint8_t *, int, int &);
+godot_error get_partial_data_bind_sp(void *, uint8_t *, int, int *);
 godot_error put_data_bind_sp(void *, const uint8_t *, int);
-godot_error put_partial_data_bind_sp(void *, const uint8_t *, int, int &);
+godot_error put_partial_data_bind_sp(void *, const uint8_t *, int, int *);
 godot_int get_available_bytes_bind_sp(const void *);
 
 class StreamPeerNative : public godot::StreamPeerGDNative {
@@ -36,9 +36,9 @@ public:
 
 	/* StreamPeer */
 	virtual godot_error get_data(uint8_t *p_buffer, int p_bytes) = 0;
-	virtual godot_error get_partial_data(uint8_t *p_buffer, int p_bytes, int &r_reveived) = 0;
+	virtual godot_error get_partial_data(uint8_t *p_buffer, int p_bytes, int *r_reveived) = 0;
 	virtual godot_error put_data(const uint8_t *p_buffer, int p_bytes) = 0;
-	virtual godot_error put_partial_data(const uint8_t *p_buffer, int p_bytes, int &r_sent) = 0;
+	virtual godot_error put_partial_data(const uint8_t *p_buffer, int p_bytes, int *r_sent) = 0;
 	virtual godot_int get_available_bytes() const = 0;
 
 	~StreamPeerNative();

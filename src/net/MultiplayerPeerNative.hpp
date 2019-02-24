@@ -11,7 +11,7 @@ namespace godot {
 namespace net {
 
 /* Forward declare interface functions (PacketPeer) */
-godot_error get_packet_bind_mp(void *, const uint8_t **, int &);
+godot_error get_packet_bind_mp(void *, const uint8_t **, int *);
 godot_error put_packet_bind_mp(void *, const uint8_t *, int);
 godot_int get_available_packet_count_bind_mp(const void *);
 godot_int get_max_packet_size_bind_mp(const void *);
@@ -59,7 +59,7 @@ public:
 	~MultiplayerPeerNative();
 
 	/* PacketPeer */
-	virtual godot_error get_packet(const uint8_t **r_buffer, int &r_len) = 0;
+	virtual godot_error get_packet(const uint8_t **r_buffer, int *r_len) = 0;
 	virtual godot_error put_packet(const uint8_t *p_buffer, int p_len) = 0;
 	virtual godot_int get_available_packet_count() const = 0;
 	virtual godot_int get_max_packet_size() const = 0;

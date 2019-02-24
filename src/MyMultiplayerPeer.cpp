@@ -8,7 +8,8 @@ void MyMultiplayerPeer::_init()
 }
 
 /* PacketPeer */
-godot_error MyMultiplayerPeer::get_packet(const uint8_t **r_buffer, int &r_len) {
+godot_error MyMultiplayerPeer::get_packet(const uint8_t **r_buffer, int *r_len) {
+	*r_len = 0;
 	return GODOT_FAILED;
 }
 

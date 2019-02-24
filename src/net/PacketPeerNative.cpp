@@ -17,7 +17,7 @@ PacketPeerNative::~PacketPeerNative() {
  * In this case it forwards calls to our C++ class, but could be plain C,
  * and you could use void *user for any kind of state struct pointer you have.
  */
-godot_error get_packet_bind_pp(void *user, const uint8_t **r_buffer, int &r_len) {
+godot_error get_packet_bind_pp(void *user, const uint8_t **r_buffer, int *r_len) {
 	return ((PacketPeerNative *) user)->get_packet(r_buffer, r_len);
 }
 

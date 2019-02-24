@@ -21,7 +21,7 @@ godot_error get_data_bind_sp(void *user, uint8_t *p_buffer, int p_bytes) {
 	return ((StreamPeerNative *) user)->get_data(p_buffer, p_bytes);
 }
 
-godot_error get_partial_data_bind_sp(void *user, uint8_t *p_buffer, int p_bytes, int &r_received) {
+godot_error get_partial_data_bind_sp(void *user, uint8_t *p_buffer, int p_bytes, int *r_received) {
 	return ((StreamPeerNative *) user)->get_partial_data(p_buffer, p_bytes, r_received);
 }
 
@@ -29,7 +29,7 @@ godot_error put_data_bind_sp(void *user, const uint8_t *p_buffer, int p_bytes) {
 	return ((StreamPeerNative *) user)->put_data(p_buffer, p_bytes);
 }
 
-godot_error put_partial_data_bind_sp(void *user, const uint8_t *p_buffer, int p_bytes, int &r_sent) {
+godot_error put_partial_data_bind_sp(void *user, const uint8_t *p_buffer, int p_bytes, int *r_sent) {
 	return ((StreamPeerNative *) user)->put_partial_data(p_buffer, p_bytes, r_sent);
 }
 
