@@ -9,11 +9,12 @@ var _stream_peer = NativeStreamPeer.new()
 
 func _ready():
 	printt(_packet_peer, _multiplayer_peer, _stream_peer)
-	var data = PoolByteArray([1, 5, 6])
+	var data = PoolByteArray([7, 5, 6])
 	prints("\nPacket Peer Tests")
 	prints("Get available packet count:", _packet_peer.get_available_packet_count())
-	prints("Put packet:", _packet_peer.put_packet(data))
-	prints("Get packet (size):", _packet_peer.get_packet().size())
+	prints("Get packet:", Array(_packet_peer.get_packet()))
+	prints("Put packet %s: %s" % [Array(data), _packet_peer.put_packet(data)])
+	prints("Get packet:", Array(_packet_peer.get_packet()))
 	prints("Put var:", _packet_peer.put_var(1))
 	prints("Allow decoding:", _packet_peer.allow_object_decoding)
 
